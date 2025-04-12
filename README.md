@@ -26,4 +26,4 @@ Using **Tailwind CSS** for styling, the website features an elegant design with 
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/mindspring.git
+   git clone https://github.com/pankajsagvekar/mindspring.git
