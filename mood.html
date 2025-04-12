@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mood | MindSpring</title>
+  <link rel="shortcut icon" href="img/flower-pot.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #C1E1C1, #A3D9A5);
+      -webkit-background-clip: text;
+      color: transparent;
+      background-clip: text;
+    }
+
+    .bg-custom {
+      position: relative;
+      background-image: url('img/back.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .bg-overlay::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, rgba(58, 90, 64, 0.7), rgba(52, 78, 65, 0.7));
+      backdrop-filter: blur(px);
+      z-index: -1;
+    }
+
+    .content-layer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Style for select dropdown */
+    select {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid #A3D9A5;
+      color: #F0FFF4;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    /* Style for hover effect on select dropdown */
+    select:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Style for the radio buttons */
+    .radio-label {
+      color: #F0FFF4;
+      font-size: 1.1rem;
+    }
+
+    /* Style for radio buttons */
+    input[type="radio"] {
+      accent-color: #A3D9A5; /* Custom color for radio button */
+    }
+
+    .radio-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .radio-container label {
+      font-size: 1.1rem;
+    }
+
+    /* Style for the overall form to make it stand out */
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .form-container label {
+      color: #D1FFD6;
+    }
+
+  </style>
+</head>
+<body class="bg-custom bg-overlay text-[#F0FFF4] min-h-screen overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="bg-transparent py-4 content-layer">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <a href="index.html" class="text-4xl font-extrabold gradient-text" style="font-family: 'Roboto', sans-serif;">MindSpring</a>
+      <div class="hidden lg:flex space-x-6 text-[#E0FBE2] font-semibold" id="nav-links">
+        <a href="index.html" class="hover:text-[#B3EFB2]">Home</a>
+        <a href="mood.html" class="hover:text-[#B3EFB2]">Mood</a>
+        <a href="about.html" class="hover:text-[#B3EFB2]">About</a>
+        <a href="contact.html" class="hover:text-[#B3EFB2]">Contact</a>
+        <a href="get-help.html" class="hover:text-[#B3EFB2]">Get Help</a>
+      </div>
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-[#E0FBE2]">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="md:hidden bg-[#2b3f2b] text-[#E0FBE2] w-full px-4 py-2 space-y-4 hidden" id="mobile-menu">
+    <a href="index.html" class="block hover:text-[#B3EFB2]">Home</a>
+    <a href="mood.html" class="block hover:text-[#B3EFB2]">Mood</a>
+    <a href="about.html" class="block hover:text-[#B3EFB2]">About</a>
+    <a href="contact.html" class="block hover:text-[#B3EFB2]">Contact</a>
+    <a href="get-help.html" class="block hover:text-[#B3EFB2]">Get Help</a>
+  </div>
+
+  <!-- Mood Tracking Section -->
+  <section class="px-6 py-12 content-layer">
+    <div class="max-w-3xl mx-auto text-center space-y-6">
+      <h1 class="text-5xl font-extrabold gradient-text">Track Your Mood</h1>
+      <p class="text-lg text-[#E5FFF0]">Stay connected with your emotions and discover how to improve your mental well-being every day.</p>
+
+      <!-- Mood Tracker Form -->
+      <form class="space-y-4 text-left max-w-md mx-auto form-container">
+        <label for="mood" class="block">How are you feeling today?</label>
+        <select id="mood" name="mood" class="w-full px-4 py-2 rounded border border-[#A3D9A5] text-[#F0FFF4]">
+          <option value="happy" class="bg-gray-600">Happy</option>
+          <option value="sad" class="bg-gray-600">Sad</option>
+          <option value="anxious" class="bg-gray-600">Anxious</option>
+          <option value="neutral" class="bg-gray-600">Neutral</option>
+        </select>
+
+        <div class="radio-container">
+          <label class="radio-label">
+            <input type="radio" name="feeling" value="good" checked> Good
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="feeling" value="okay"> Okay
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="feeling" value="bad"> Bad
+          </label>
+        </div>
+
+        <button type="submit" class="w-full sm:w-auto px-6 py-2 border border-[#A3D9A5] hover:bg-[#A3D9A5] hover:text-[#1E2D1F] rounded transition hover:scale-105">Save Mood</button>
+      </form>
+
+      <!-- Mood Feedback Section -->
+      <div id="mood-feedback" class="mt-6 space-y-4 text-lg text-[#E5FFF0] hidden">
+        <p id="feedback-message"></p>
+        <div id="personalized-feedback" class="space-y-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm text-[#E0FFE0] content-layer">
+    <p>🌱 Keep track, stay aware, and feel better with MindSpring</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Handle form submission and give personalized feedback
+    const form = document.querySelector('form');
+    const moodFeedback = document.getElementById('mood-feedback');
+    const feedbackMessage = document.getElementById('feedback-message');
+    const personalizedFeedback = document.getElementById('personalized-feedback');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const mood = document.getElementById('mood').value;
+      const feeling = document.querySelector('input[name="feeling"]:checked').value;
+
+      // Show feedback based on mood
+      moodFeedback.classList.remove('hidden');
+
+      if (mood === "happy") {
+        feedbackMessage.textContent = "You're feeling great! Keep spreading positivity!";
+        personalizedFeedback.innerHTML = "<p>🌱 Tip: Try to keep track of the things that make you happy and make time for them!</p>";
+      } else if (mood === "sad") {
+        feedbackMessage.textContent = "It seems like you're feeling down. It's okay, take your time!";
+        personalizedFeedback.innerHTML = "<p>🌱 Tip: Talk to someone you trust or take a break to refresh your mind.</p>";
+      } else if (mood === "anxious") {
+        feedbackMessage.textContent = "Feeling anxious can be tough. Remember to breathe and take small steps.";
+        personalizedFeedback.innerHTML = "<p>🌱 Tip: Try grounding exercises or meditate to calm your thoughts.</p>";
+      } else {
+        feedbackMessage.textContent = "You're feeling neutral today. A calm mindset can bring clarity.";
+        personalizedFeedback.innerHTML = "<p>🌱 Tip: Focus on balanced activities, like exercise or spending time outdoors.</p>";
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | MindSpring</title>
+  <link rel="shortcut icon" href="img/flower-pot.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #C1E1C1, #bdebbe);
+      -webkit-background-clip: text;
+      color: transparent;
+      background-clip: text;
+    }
+
+    .bg-custom {
+      position: relative;
+      background-image: url('img/back.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .bg-overlay::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, rgba(58, 90, 64, 0.7), rgba(52, 78, 65, 0.7));
+      backdrop-filter: blur(px);
+      z-index: -1;
+    }
+
+    .content-layer {
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      z-index: 10;
+    }
+
+    .hover-scale {
+      transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.05);
+      background-color: #A3D9A5;
+      color: #1E2D1F;
+    }
+  </style>
+</head>
+<body class="bg-custom bg-overlay text-[#F0FFF4] min-h-screen overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="bg-transparent py-4 content-layer">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <a href="index.html" class="text-4xl font-extrabold gradient-text" style="font-family: 'Roboto', sans-serif;">MindSpring</a>
+      <div class="hidden lg:flex space-x-6 text-[#E0FBE2] font-semibold" id="nav-links">
+        <a href="index.html" class="hover:text-[#B3EFB2]">Home</a>
+        <a href="mood.html" class="hover:text-[#B3EFB2]">Mood</a>
+        <a href="about.html" class="hover:text-[#B3EFB2]">About</a>
+        <a href="contact.html" class="hover:text-[#B3EFB2]">Contact</a>
+        <a href="get-help.html" class="hover:text-[#B3EFB2]">Get Help</a>
+      </div>
+      <!-- Mobile Navbar Toggle Button -->
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-[#E0FBE2]">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="md:hidden bg-[#2b3f2b] text-[#E0FBE2] w-full px-4 py-2 space-y-4 hidden" id="mobile-menu">
+    <a href="index.html" class="block hover:text-[#B3EFB2]">Home</a>
+    <a href="mood.html" class="block hover:text-[#B3EFB2]">Mood</a>
+    <a href="about.html" class="block hover:text-[#B3EFB2]">About</a>
+    <a href="contact.html" class="block hover:text-[#B3EFB2]">Contact</a>
+    <a href="get-help.html" class="block hover:text-[#B3EFB2]">Get Help</a>
+  </div>
+
+  <!-- Contact Section -->
+  <section class="px-6 py-12 content-layer">
+    <div class="max-w-3xl mx-auto text-center space-y-6">
+      <h1 class="text-3xl md:text-5xl font-extrabold gradient-text">Contact Us</h1>
+      <p class="text-lg text-[#E5FFF0]">We’d love to hear from you. Whether you have questions, feedback, or just want to say hello—reach out anytime!</p>
+      <form class="space-y-4 text-left max-w-md mx-auto">
+        <input type="text" placeholder="Your Name" class="w-full px-4 py-2 rounded bg-white/10 border border-[#A3D9A5] placeholder:text-[#D1FFD6] text-[#F0FFF4]" />
+        <input type="email" placeholder="Your Email" class="w-full px-4 py-2 rounded bg-white/10 border border-[#A3D9A5] placeholder:text-[#D1FFD6] text-[#F0FFF4]" />
+        <textarea rows="5" placeholder="Your Message" class="w-full px-4 py-2 rounded bg-white/10 border border-[#A3D9A5] placeholder:text-[#D1FFD6] text-[#F0FFF4]"></textarea>
+        <button type="submit" class="w-full bg-[#A3D9A5] text-[#1E2D1F] font-semibold py-2 rounded hover-scale">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm text-[#E0FFE0] content-layer">
+    <p>🌱 MindSpring – your space for balance and clarity</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>

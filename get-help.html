@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Help | MindSpring</title>
+  <link rel="shortcut icon" href="img/flower-pot.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #C1E1C1, #A3D9A5);
+      -webkit-background-clip: text;
+      color: transparent;
+      background-clip: text;
+    }
+
+    .bg-custom {
+      position: relative;
+      background-image: url('img/back.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .bg-overlay::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, rgba(58, 90, 64, 0.7), rgba(52, 78, 65, 0.7));
+      backdrop-filter: blur(px);
+      z-index: -1;
+    }
+
+    .content-layer {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body class="bg-custom bg-overlay text-[#F0FFF4] min-h-screen overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="bg-transparent py-4 content-layer">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <a href="index.html" class="text-4xl font-extrabold gradient-text" style="font-family: 'Roboto', sans-serif;">MindSpring</a>
+      <div class="hidden lg:flex space-x-6 text-[#E0FBE2] font-semibold" id="nav-links">
+        <a href="index.html" class="hover:text-[#B3EFB2]">Home</a>
+        <a href="mood.html" class="hover:text-[#B3EFB2]">Mood</a>
+        <a href="about.html" class="hover:text-[#B3EFB2]">About</a>
+        <a href="contact.html" class="hover:text-[#B3EFB2]">Contact</a>
+        <a href="get-help.html" class="hover:text-[#B3EFB2]">Get Help</a>
+      </div>
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-[#E0FBE2]">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="md:hidden bg-[#2b3f2b] text-[#E0FBE2] w-full px-4 py-2 space-y-4 hidden" id="mobile-menu">
+    <a href="index.html" class="block hover:text-[#B3EFB2]">Home</a>
+    <a href="mood.html" class="block hover:text-[#B3EFB2]">Mood</a>
+    <a href="about.html" class="block hover:text-[#B3EFB2]">About</a>
+    <a href="contact.html" class="block hover:text-[#B3EFB2]">Contact</a>
+    <a href="get-help.html" class="block hover:text-[#B3EFB2]">Get Help</a>
+  </div>
+
+  <!-- Get Help Section -->
+  <section class="px-6 py-12 content-layer">
+    <div class="max-w-3xl mx-auto text-center space-y-6">
+      <h1 class="text-5xl font-extrabold gradient-text">Get Help</h1>
+      <p class="text-lg text-[#E5FFF0]">If you’re struggling, we’re here to support you. Explore resources and reach out for assistance. You’re not alone!</p>
+      
+      <!-- Help Resources List -->
+      <div class="space-y-6">
+        <div class="bg-white/20 p-6 rounded-xl shadow-lg">
+          <h2 class="text-3xl font-extrabold text-[#A3D9A5]">Mental Health Hotlines</h2>
+          <ul class="space-y-4 text-left text-[#E5FFF0]">
+            <li><strong>National Suicide Prevention Lifeline:</strong> 1-800-273-TALK</li>
+            <li><strong>Text HOME to 741741:</strong> Crisis Text Line</li>
+            <li><strong>MindSpring Helpline:</strong> 1-888-555-MIND</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white/20 p-6 rounded-xl shadow-lg">
+          <h2 class="text-3xl font-extrabold text-[#A3D9A5]">Mental Health Resources</h2>
+          <ul class="space-y-4 text-left text-[#E5FFF0]">
+            <li><a href="#" class="hover:text-[#B3EFB2]">Therapists Near You</a></li>
+            <li><a href="#" class="hover:text-[#B3EFB2]">Self-Help Apps</a></li>
+            <li><a href="#" class="hover:text-[#B3EFB2]">Support Groups</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm text-[#E0FFE0] content-layer">
+    <p>🌱 We're here to help. Reach out today!</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
