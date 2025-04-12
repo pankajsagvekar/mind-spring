@@ -2,7 +2,7 @@
 
 MindSpring is a website created for the **Gemini ReVamp: Code & Create (Web Development)** hackathon organized by **Indira Gandhi Delhi Technical University for Women (IGDTUW), Delhi**, during **Devcation'25 - GDG On Campus IGDTUW**. This platform focuses on providing users with tools to track their mental health, reflect on their mood, and access personalized mental health resources. The website features smooth navigation, engaging UI components, and a beautiful, user-friendly design.
 
-## 🧠 Key Features
+## 💡 Key Features
 
 - **Mood Tracking**: Track your daily mood and visualize your emotional journey over time.
 - **Personalized Resources**: Access curated mental health resources that suit your needs.
@@ -22,7 +22,7 @@ Using **Tailwind CSS** for styling, the website features an elegant design with 
 - **JavaScript**: Used to implement interactivity (e.g., smooth scrolling, mobile menu toggle).
 - **AI Assistance**: AI was leveraged to optimize design elements, suggest improvements, and assist in the structure and flow of the website.
 
-## 🖥️ Installation Instructions
+## 🔧 Installation Instructions
 
 1. **Clone the repository**:
    ```bash
