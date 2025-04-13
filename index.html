@@ -8,7 +8,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
   <style>
-    /* Mint Gradient Text */
     .gradient-text {
       background: linear-gradient(90deg, #C1E1C1, #bdebbe);
       -webkit-background-clip: text;
@@ -16,7 +15,6 @@
       background-clip: text;
     }
 
-    /* Background with blur and overlay */
     .bg-custom {
       position: relative;
       background-image: url('img/back.jpg');
@@ -30,7 +28,7 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(to bottom right, rgba(58, 90, 64, 0.7), rgba(52, 78, 65, 0.7));
-      backdrop-filter: blur(px); /* Reduced blur to optimize performance */
+      backdrop-filter: blur(px);
       z-index: 0;
     }
 
@@ -39,7 +37,6 @@
       z-index: 1;
     }
 
-    /* Smooth transition for hover */
     .hover-scale {
       transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     }
@@ -50,42 +47,20 @@
       color: #1E2D1F;
     }
 
-    /* Toggle button animation */
-    .menu-icon {
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .menu-icon.open {
-      transform: rotate(45deg);
-    }
-
-    .menu-icon.open path:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-
-    .menu-icon.open path:nth-child(2) {
-      opacity: 0;
-    }
-
-    .menu-icon.open path:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-
-    /* Mobile Menu */
-    .mobile-menu {
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-
-    .mobile-menu.open {
-      transform: translateX(0);
-      opacity: 1;
-    }
-
-    /* Smooth Scroll */
     html {
       scroll-behavior: smooth;
+    }
+
+    .typewriter-cursor::after {
+      content: '|';
+      margin-left: 5px;
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
     }
   </style>
 </head>
@@ -98,7 +73,6 @@
         <a href="index.html" class="text-4xl font-extrabold gradient-text" style="font-family: 'Roboto', sans-serif;">🌱 MindSpring</a>
       </div>
 
-      <!-- Mobile Menu Toggle Button -->
       <div class="lg:hidden">
         <button id="menu-toggle" class="text-[#E0FBE2]">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8 menu-icon">
@@ -109,7 +83,6 @@
         </button>
       </div>
 
-      <!-- Navbar Links -->
       <div class="hidden lg:flex space-x-6 text-[#E0FBE2] font-semibold" id="nav-links">
         <a href="index.html" class="hover:text-[#B3EFB2]">Home</a>
         <a href="mood.html" class="hover:text-[#B3EFB2]">Mood</a>
@@ -118,22 +91,15 @@
         <a href="get-help.html" class="hover:text-[#B3EFB2]">Get Help</a>
       </div>
     </div>
-
-    <!-- Mobile Navbar Links -->
-    <div class="lg:hidden bg-[#2b3f2b] text-[#E0FBE2] w-full px-4 py-2 space-y-4 mobile-menu" id="mobile-menu">
-      <a href="index.html" class="block hover:text-[#B3EFB2]">Home</a>
-      <a href="mood.html" class="block hover:text-[#B3EFB2]">Mood</a>
-      <a href="about.html" class="block hover:text-[#B3EFB2]">About</a>
-      <a href="contact.html" class="block hover:text-[#B3EFB2]">Contact</a>
-      <a href="get-help.html" class="block hover:text-[#B3EFB2]">Get Help</a>
-    </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="flex flex-col-reverse lg:flex-row items-center justify-center text-center lg:text-left px-8 py-12 lg:py-24 gap-8 content-layer">
     <div class="max-w-lg space-y-6">
       <h2 class="text-sm font-bold tracking-widest uppercase gradient-text">Harmony</h2>
-      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight gradient-text">MENTAL HEALTH</h1>
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight gradient-text">
+        <span id="typewriter" class="typewriter-cursor"></span>
+      </h1>
       <p class="text-[#E5FFF0] text-base">Discover the tranquility of a balanced mind and simple strategies to help you live better. Begin your journey toward inner harmony with MindSpring.</p>
       <div class="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
         <a href="mood.html" class="px-5 py-2 border border-[#A3D9A5] rounded hover-scale">Get Started</a>
@@ -146,7 +112,7 @@
     </div>
   </section>
 
-  <!-- Featured/Ad Section -->
+  <!-- Featured Section -->
   <section id="featured" class="content-layer px-8 py-16 text-center">
     <div class="max-w-3xl mx-auto bg-[#294936]/80 backdrop-blur-md rounded-xl shadow-lg p-8">
       <h2 class="text-3xl font-bold gradient-text mb-4">Why MindSpring?</h2>
@@ -162,16 +128,42 @@
     <p>🌱 10k+ users on their well-being journey with MindSpring</p>
   </div>
 
+  <!-- JS: Typewriter Effect -->
   <script>
-    // Toggle mobile menu
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.querySelector('.menu-icon');
-    
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      menuIcon.classList.toggle('open');
-    });
+    const phrases = ["MENTAL HEALTH", "YOU MATTER", "SELF CARE FIRST", "GROW THROUGH WHAT YOU GO THROUGH"];
+    const typewriterElement = document.getElementById("typewriter");
+    let phraseIndex = 0;
+    let letterIndex = 0;
+    let isDeleting = false;
+
+    function typeLoop() {
+      const currentPhrase = phrases[phraseIndex];
+      let displayedText = currentPhrase.substring(0, letterIndex);
+      typewriterElement.textContent = displayedText;
+
+      if (!isDeleting) {
+        if (letterIndex < currentPhrase.length) {
+          letterIndex++;
+          setTimeout(typeLoop, 200); // typing speed
+        } else {
+          setTimeout(() => {
+            isDeleting = true;
+            typeLoop();
+          }, 1500); // pause before deleting
+        }
+      } else {
+        if (letterIndex > 0) {
+          letterIndex--;
+          setTimeout(typeLoop, 100); // deleting speed
+        } else {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(typeLoop, 800); // pause before next phrase
+        }
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', typeLoop);
   </script>
 
 </body>
