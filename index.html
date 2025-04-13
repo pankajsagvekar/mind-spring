@@ -28,13 +28,17 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(to bottom right, rgba(58, 90, 64, 0.7), rgba(52, 78, 65, 0.7));
-      backdrop-filter: blur(px);
-      z-index: 0;
+      backdrop-filter: blur(0px);
+      z-index: -1;
     }
 
     .content-layer {
       position: relative;
       z-index: 1;
+    }
+
+    nav {
+      z-index: 10;
     }
 
     .hover-scale {
@@ -82,16 +86,18 @@
           </svg>
         </button>
       </div>
-
-      <div class="hidden lg:flex space-x-6 text-[#E0FBE2] font-semibold" id="nav-links">
-        <a href="index.html" class="hover:text-[#B3EFB2]">Home</a>
-        <a href="mood.html" class="hover:text-[#B3EFB2]">Mood</a>
-        <a href="about.html" class="hover:text-[#B3EFB2]">About</a>
-        <a href="contact.html" class="hover:text-[#B3EFB2]">Contact</a>
-        <a href="get-help.html" class="hover:text-[#B3EFB2]">Get Help</a>
-      </div>
     </div>
   </nav>
+
+    <!-- Responsive Nav Links -->
+    <div class="md:hidden bg-[#2b3f2b] text-[#E0FBE2] w-full px-4 py-2 space-y-4 hidden" id="mobile-menu">
+      <a href="index.html" class="block hover:text-[#B3EFB2]">Home</a>
+      <a href="mood.html" class="block hover:text-[#B3EFB2]">Mood</a>
+      <a href="about.html" class="block hover:text-[#B3EFB2]">About</a>
+      <a href="contact.html" class="block hover:text-[#B3EFB2]">Contact</a>
+      <a href="get-help.html" class="block hover:text-[#B3EFB2]">Get Help</a>
+    </div>
+ 
 
   <!-- Hero Section -->
   <section class="flex flex-col-reverse lg:flex-row items-center justify-center text-center lg:text-left px-8 py-12 lg:py-24 gap-8 content-layer">
@@ -164,6 +170,17 @@
     }
 
     window.addEventListener('DOMContentLoaded', typeLoop);
+  </script>
+
+  <!-- JS: Mobile Navbar Toggle -->
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
   </script>
 
 </body>
